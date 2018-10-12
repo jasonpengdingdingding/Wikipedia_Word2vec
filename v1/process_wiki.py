@@ -37,7 +37,13 @@ if __name__ == '__main__':
         #    output.write(
         #            space.join(map(lambda x:x.decode("utf-8"), text)) + '\n')
         else:
-            output.write(space.join(text) + "\n")
+			for term in text:
+				try:
+					output.write(term+' ')
+				except:
+					pass
+			output.write('\n')
+			output.flush()
         i = i + 1
         if (i % 10000 == 0):
             logger.info("Saved " + str(i) + " articles")
